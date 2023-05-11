@@ -1,23 +1,15 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
+import { createData } from './databaseConfig'
+
 
 function App() {
+  const [value, setValue] = useState("")
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <input type="text" value={value} onChange={(e) => setValue(e.target.value)}/>
+      <button onClick={() => createData(value)}>Wyślij wiadomość</button>
     </div>
   );
 }
